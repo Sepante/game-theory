@@ -11,9 +11,10 @@ import pandas as pd
 levels = 3
 
 
-total_resource = 100
+total_resource = float(1)
 troop_cost = total_resource * 0.02
-conflict_cost = total_resource * 0.50
+#conflict_cost = total_resource * 0.50
+conflict_cost = total_resource * 0.45
 win_ratio = 0.7
 
 
@@ -48,8 +49,8 @@ for i in range(levels):
 fig, ax = plt.subplots()
 im = ax.matshow(reward_arr)
 for (i, j), z in np.ndenumerate(reward_arr):
-    ax.text(j, i, '{:0.1f}'.format(z), ha='center', va='center')
-fig.colorbar(im)
+    ax.text(j, i, '{:0.3f}'.format(z), ha='center', va='center')
+#fig.colorbar(im)
 
 
 fig.savefig( str(win_ratio) +".png", dpi = 300, bbox_inches='tight')
